@@ -1,0 +1,79 @@
+clusplot                package:cluster                R Documentation
+
+_B_i_v_a_r_i_a_t_e _C_l_u_s_t_e_r _P_l_o_t (_o_f _a _P_a_r_t_i_t_i_o_n_i_n_g _O_b_j_e_c_t)
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Draws a 2-dimensional “clusplot” (clustering plot) on the current
+     graphics device.  The generic function has a default and a
+     ‘partition’ method.
+
+_U_s_a_g_e:
+
+     clusplot(x, ...)
+     
+     ## S3 method for class 'partition'
+     clusplot(x, main = NULL, dist = NULL, ...)
+     
+_A_r_g_u_m_e_n_t_s:
+
+       x: an R object, here, specifically an object of class
+          ‘"partition"’, e.g. created by one of the functions ‘pam’,
+          ‘clara’, or ‘fanny’.
+
+    main: title for the plot; when ‘NULL’ (by default), a title is
+          constructed, using ‘x$call’.
+
+    dist: when ‘x’ does not have a ‘diss’ nor a ‘data’ component, e.g.,
+          for ‘pam(dist(*), keep.diss=FALSE)’, ‘dist’ must specify the
+          dissimilarity for the clusplot.
+
+     ...: optional arguments passed to methods, notably the
+          ‘clusplot.default’ method (except for the ‘diss’ one) may
+          also be supplied to this function.  Many graphical parameters
+          (see ‘par’) may also be supplied as arguments here.
+
+_D_e_t_a_i_l_s:
+
+     The ‘clusplot.partition()’ method relies on ‘clusplot.default’.
+
+     If the clustering algorithms ‘pam’, ‘fanny’ and ‘clara’ are
+     applied to a data matrix of observations-by-variables then a
+     clusplot of the resulting clustering can always be drawn.  When
+     the data matrix contains missing values and the clustering is
+     performed with ‘pam’ or ‘fanny’, the dissimilarity matrix will be
+     given as input to ‘clusplot’.  When the clustering algorithm
+     ‘clara’ was applied to a data matrix with NAs then clusplot will
+     replace the missing values as described in ‘clusplot.default’,
+     because a dissimilarity matrix is not available.
+
+_V_a_l_u_e:
+
+     For the ‘partition’ (and ‘default’) method: An invisible list with
+     components ‘Distances’ and ‘Shading’, as for ‘clusplot.default’,
+     see there.
+
+_S_i_d_e _E_f_f_e_c_t_s:
+
+     a 2-dimensional clusplot is created on the current graphics
+     device.
+
+_S_e_e _A_l_s_o:
+
+     ‘clusplot.default’ for references; ‘partition.object’, ‘pam’,
+     ‘pam.object’, ‘clara’, ‘clara.object’, ‘fanny’, ‘fanny.object’,
+     ‘par’.
+
+_E_x_a_m_p_l_e_s:
+
+      ## For more, see ?clusplot.default
+     
+     ## generate 25 objects, divided into 2 clusters.
+     x <- rbind(cbind(rnorm(10,0,0.5), rnorm(10,0,0.5)),
+                cbind(rnorm(15,5,0.5), rnorm(15,5,0.5)))
+     clusplot(pam(x, 2))
+     ## add noise, and try again :
+     x4 <- cbind(x, rnorm(25), rnorm(25))
+     clusplot(pam(x4, 2))
+     
+

@@ -1,0 +1,24 @@
+Función para rellenar los valores nulos de nuestro dataset:
+
+	edad <- function(edad,clase) {
+		salida <- edad
+		for (i in 1:length(edad)) {
+			if (is.na(edad[i])) {
+				if (clase[i] == 1) {
+					salida[i] <- 38
+				} else if (clase[i] == 2) {
+					salida[i] <- 29
+				} else {
+				    salida[i] <- 23
+				}
+			} else {
+				salida[i] <- edad[i]
+			}
+		}
+		return(salida)
+	}
+	
+	
+Entrenamiento del modelo:
+
+modelo <- glm(Survived  ~ . , family=binomial(link='logit'), data=entrenamiento)

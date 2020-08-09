@@ -1,0 +1,27 @@
+db_01.R
+dbWriteTable(con, "coches", mtcars)
+dbReadTable(con, "coches")
+res <- dbSendQuery(con, "SELECT * from coches")
+res
+res <- dbSendQuery(con, "SELECT * FROM coches")
+res <- dbSendQuery(con, "SELECT * FROM coches WHERE cyl = 8")
+dbClearResult(res)
+res <- dbSendQuery(con, "SELECT * FROM coches")
+res
+dbClearResult(res)
+res <- dbSendQuery(con, "SELECT * FROM coches WHERE cyl = 8")
+res
+dbReadTable(con, "coches")
+dbClearResult(res)
+dbReadTable(con, "coches")
+res <- dbSendQuery(con, "SELECT * FROM coches WHERE cyl = 8")
+dbFetch(res)
+dbClearResult(res)
+dbFetch(res)
+res <- dbSendQuery(con, "SELECT * FROM coches")
+dbFetch(res)
+dbFetch(res)
+dbClearResult(res)
+dbFetch(res)
+dbDisconnect(con)
+res <- dbSendQuery(con, "SELECT * FROM coches")
