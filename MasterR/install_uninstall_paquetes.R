@@ -1,12 +1,13 @@
 # install_uninstall_paquetes.R
 
-
 # if (!require(ggplot2)) {
 #   install.packages("ggplot2")
 #   library(ggplot2)
 # }
 
 # or if you want to parameterize it:
+
+# instala los paquetes definidos en el vector instalar
 
 instalar <- c("ggplot2", "ggplot2movies")
 for (pkg in instalar) {

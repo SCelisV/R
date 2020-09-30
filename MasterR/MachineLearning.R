@@ -659,7 +659,7 @@ str(datos.20)
 #  $ Parch   : int  0 0 0 0 0 0 0 1 2 0 ...
 #  $ Fare    : num  7.25 71.28 7.92 53.1 8.05 ...
 #  $ Embarked: Factor w/ 4 levels "","C","Q","S": 4 2 4 4 4 3 4 4 4 2 ...
-> # factorizar ó categorizar con valores concretos:
+# factorizar ó categorizar con valores concretos:
 
 datos.20$Survived <- factor(datos.20$Survived)
 datos.20$Survived
@@ -954,12 +954,12 @@ clusters
 
 # para ver mejor como ha hecho la clasificación podemos crear una tabla:
 
-> table(clusters$cluster, datos.24$Species)
+table(clusters$cluster, datos.24$Species)
    
-    setosa versicolor virginica
-  1      0          2        36
-  2     50          0         0
-  3      0         48        14
+#     setosa versicolor virginica
+#   1      0          2        36
+#   2     50          0         0
+#   3      0         48        14
 
 library(cluster)
 clusplot(datos.24, clusters$cluster, color=T, shade=T, lablels=0, lines=0)
@@ -974,9 +974,9 @@ help(clusplot)
 # - Función de activación - Soma o núcleo - (unión sumadora)
 # - Canal de salida y Axón.
 
- n
- Σ WiXi + b
-i=0 
+#  n
+#  Σ WiXi + b
+# i=0 
 
 install.packages('MASS')
 library(MASS)
